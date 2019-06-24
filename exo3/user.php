@@ -23,7 +23,7 @@
           </header>
           <!-- main -->
           <main>
-              <p>Bonjour, <?php echo $_GET['firstName'] . ' ' . $_GET['lastName']; ?></p>
+              <p>Bonjour, <?php echo strip_tags($_GET['firstName']) . ' ' . strip_tags($_GET['lastName']); ?></p>
           </main>
           <!-- footer -->
           <footer>

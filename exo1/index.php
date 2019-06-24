@@ -27,7 +27,7 @@
               <!-- On renvoie le formulaire vers la page "user.php" avec la méthode GET -->
               <p><label>Nom : <input class="form-control" type="text" name="lastName"></label></p>
               <p><label>Prénom : <input class="form-control" type="text" name="firstName"></label></p>
-              <p><button type="submit" class="btn btn-success font-weight-bold">Valider</button></p>
+              <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
             </form>
           </main>
           <!-- footer -->

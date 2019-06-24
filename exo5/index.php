@@ -42,7 +42,7 @@
                 </label>
                 <p><label>Nom : <input type="text" name="lastName" class="form-control"></label></p>
                 <p><label>Prénom : <input type="text" name="firstName" class="form-control"></label></p>
-                <p><button type="submit" class="btn btn-success font-weight-bold">Valider</button></p>
+                <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
               </form>
               <?php if(isset($_POST['gender']) && (isset($_POST['firstName']) && (isset($_POST['lastName'])))){
                   echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'];

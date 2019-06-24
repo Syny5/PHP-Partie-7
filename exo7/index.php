@@ -23,22 +23,33 @@
           </header>
           <!-- main -->
           <main>
-              <?php if(isset($_POST['gender']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['cv'])){
-                  echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' au CV ' . $_POST['cv'];
+              <?php if(!empty($_POST['gender']) && !empty($_POST['firstName']) && !empty($_POST['lastName'])){ // Si la variable a été déclarée et qu'elle n'est pas vide
+                  var_dump($_FILES);
+                  echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' au CV ' . $_POST['cv']; // On affiche le contenu des variables.
                   } else {
               ?>
-              <form action="index.php" method="POST" class="form-group">
-                <label> Civilité :
+              <form enctype="multipart/form-data" action="index.php" method="POST">
+                <div class="form-group">
+                    <label for="gender"> Civilité :</label>
                     <select class="form-control" name="gender">
                         <option value="Monsieur">Monsieur</option>
                         <option value="Madame">Madame</option>
                     </select>
-                </label>
-                <p><label>Nom : <input class="form-control" type="text" name="lastName"></label></p>
-                <p><label>Prénom : <input class="form-control" type="text" name="firstName"></label></p>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom :</label>
+                    <input class="form-control" type="text" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom :</label> 
+                    <input class="form-control" type="text" name="firstName">
+                </div>
                 <!-- On ajoute un champs d'envoi de fichier avec le input type="file" -->
-                <p><label>CV (au format pdf) : <input class="form-control" type="file" name="cv"></label></p>
-                <p><button type="submit" class="btn btn-success font-weight-bold">Valider</button></p>
+                <div class="form-group">
+                    <label for="CV">CV (au format pdf) :</label> 
+                    <input class="form-control" type="file" name="cv">
+                </div>
+                <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
               </form>
               <p class="text-danger font-weight-bold">
                 <?php

@@ -23,7 +23,7 @@
           </header>
           <!-- main -->
           <main>
-              <p>Bonjour, <?php echo $_POST['firstName'] . ' ' . $_POST['lastName']; ?></p>
+              <p>Bonjour, <?php echo strip_tags($_POST['firstName']) . ' ' . strip_tags($_POST['lastName']); ?></p>
           </main>
           <!-- footer -->
           <footer>
