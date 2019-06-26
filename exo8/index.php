@@ -23,43 +23,44 @@
           </header>
           <!-- main -->
           <main>
-              <?php if(isset($_POST['gender']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['cv'])){ // Si la variable a été déclarée et qu'elle n'est pas vide
-                  echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' au CV ' . $_POST['cv']; // On affiche le contenu des variables.
-                  } else {
-              ?>
+            <?php
+              if (!empty($_POST['gender']) && !empty($_POST['firstname']) && !empty($_POST['lastname'])) {
+                  var_dump($_FILES['myFile']);
+                  if (isset($_FILES['myFile']) && $_FILES['myFile']['error'] === 0) {
+                      $path = pathinfo($_FILES['myFile']['name']);
+                      if ($path['extension'] == 'pdf') {
+                          echo 'bonjour ' . $_POST['gender'] . ' ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . '. Vous avez envoyé le fichier ' . $path['basename'];
+                          move_uploaded_file($_FILES['myFile']['tmp_name'], 'upload/toto.' . $path['extension']);
+                      } else {
+                          echo 'Veuillez utiliser la bonne extension.';
+                      }
+                  }
+              } else { ?>
               <div class="row">
-                <div class="col-md-4">
-                    <form action="index.php" method="POST" class="form-group" enctype="multipart/form-data">
+                <div class="col-7 col-sm-6 col-md-5 col-lg-4">
+                    <form class="text-center" method="post" action="index.php" enctype="multipart/form-data">
                       <div class="form-group">
-                          <label for="gender"> Civilité :</label>
-                          <select class="form-control" name="gender">
-                              <option value="Monsieur">Monsieur</option>
-                              <option value="Madame">Madame</option>
+                          <select name="gender" class="form-control">
+                            <option value="Mr">Mr</option> 
+                            <option value="Mme" selected>Mme</option>
                           </select>
                       </div>
                       <div class="form-group">
-                          <label for="lastName">Nom :</label>
-                          <input class="form-control" type="text" name="lastName"></label>
+                          <input name="lastname" type="text" placeholder="Nom" class="form-control"/>
                       </div>
                       <div class="form-group">
-                          <label for="firstName">Prénom :</label>
-                          <input class="form-control" type="text" name="firstName"></label>
+                          <input name="firstname" type="text" placeholder="Prénom" class="form-control"/>
                       </div>
-                      <!-- Avec le accept=".pdf", l'utilisateur n'aura que ses fichiers .pdf qui lui seront disponibles lors de sa recherche dans ses dossiers. -->
                       <div class="form-group">
-                          <label for="cv">CV (au format pdf) :</label>
-                          <input class="form-control" type="file" name="cv" accept=".pdf">
+                         <input type="file" name="myFile" class="form-control"/>
                       </div>
-                      <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
+                      <div class="form-group">
+                          <input type="submit" value="Valider" accept=".html" class="form-control"/>
+                      </div>
                     </form>
                 </div>
               </div>
-              <p class="text-danger font-weight-bold">
-                <?php
-                    echo 'Veuillez remplir les informations ci-dessus.';
-                   }
-                ?>
-              </p>
+            <?php } ?>
           </main>
           <!-- footer -->
           <footer>

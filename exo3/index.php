@@ -24,8 +24,14 @@
           <main>
               <form action="user.php" method="GET">
                 <!-- On renvoie le formulaire vers la page "user.php" avec la méthode GET -->
-                <p><label>Nom : <input class="form-control" type="text" name="lastName"></label></p>
-                <p><label>Prénom : <input class="form-control" type="text" name="firstName"></label></p>
+                <div class="form-group">
+                    <label for="lastName">Nom : </label>
+                    <input class="form-control" type="text" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom : </label>
+                    <input class="form-control" type="text" name="firstName">
+                </div>
                 <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
               </form>
           </main>

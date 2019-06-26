@@ -25,7 +25,7 @@
           <main>
               <?php if(!empty($_POST['gender']) && !empty($_POST['firstName']) && !empty($_POST['lastName'])){ // Si la variable a été déclarée et qu'elle n'est pas vide
                   var_dump($_FILES);
-                  echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' au CV ' . $_POST['cv']; // On affiche le contenu des variables.
+                  echo 'Bonjour, ' . $_POST['gender'] . ' ' . $_POST['firstName'] . ' ' . $_POST['lastName'] . ' avec la pièce-jointe ' . $_POST['cv']; // On affiche le contenu des variables.
                   } else {
               ?>
               <form enctype="multipart/form-data" action="index.php" method="POST">
@@ -46,7 +46,7 @@
                 </div>
                 <!-- On ajoute un champs d'envoi de fichier avec le input type="file" -->
                 <div class="form-group">
-                    <label for="CV">CV (au format pdf) :</label> 
+                    <label for="CV">Pièce-jointe :</label> 
                     <input class="form-control" type="file" name="cv">
                 </div>
                 <button type="submit" class="btn btn-success font-weight-bold">Valider</button>

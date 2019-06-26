@@ -34,14 +34,21 @@
               <!-- On renvoie le formulaire vers la page "user.php" avec la méthode POST -->
               <form action="index.php" method="POST">
                 <!-- On ajoute une liste déroulant avec la balise HTML select suivi des options. -->
-                <label> Civilité :
+                <div class="form-group">
+                <label for="gender"> Civilité :</label>
                     <select class="form-control" name="gender">
                         <option value="Monsieur">Monsieur</option>
                         <option value="Madame">Madame</option>
                     </select>
-                </label>
-                <p><label>Nom : <input type="text" name="lastName" class="form-control"></label></p>
-                <p><label>Prénom : <input type="text" name="firstName" class="form-control"></label></p>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom : </label>
+                    <input class="form-control" type="text" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom : </label>
+                    <input class="form-control" type="text" name="firstName">
+                </div>
                 <button type="submit" class="btn btn-success font-weight-bold">Valider</button>
               </form>
               <?php if(isset($_POST['gender']) && (isset($_POST['firstName']) && (isset($_POST['lastName'])))){
